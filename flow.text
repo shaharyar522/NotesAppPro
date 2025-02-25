@@ -1,0 +1,30 @@
+
+
+Hum ny es main bootstrap include now this project 
+
+now this is application Todo list notes app.
+
+where you have take notes update create,delete, updates
+
+
+
+////
+now database name is crud
+
+us ka andat table notes 
+which is 4 colum  1. sno 2.title 3.descripiotn 4.tstamp 
+4. hamray pass time ka luey hian 
+
+
+
+ab main ny two button banya hina ek edit ka or dosra delete ka 
+agar main edit par click karo to  wo mohjain modal show kara gay 
+jo kay hum us ko edit kar saktian  hian
+
+// ab hum nay ek modal daal ahian jo kay 
+// button main edit class di  hian agar wo click karo ga to edit button hn  jian ga 
+
+
+
+
+
