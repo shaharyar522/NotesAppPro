@@ -156,7 +156,7 @@ require_once("./incs/update_code.php");
                          <th>" . $sno . "</th>
                           <td>" . $row['title'] . "</td>
                           <td>" . $row['description'] . "</td>
-                          <td> <button class='edit btn btn-sm btn-primary' id=" . $row['sno'] . ">Edit</button> <a href='/delete'>Delete</a></td>
+                          <td> <button class='edit btn btn-sm btn-primary' id=" . $row['sno'] . ">Edit</button> <button class='delete btn btn-sm btn-primary' id=td" . $row['sno'] . ">Delete</button></td>
                          </tr>";
                 }
                 ?>

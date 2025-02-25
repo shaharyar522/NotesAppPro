@@ -17,8 +17,20 @@ Array.from(edits).forEach((element) => {
   });
 });
 
+//Delete js code hian uay 
 
-
-//Delete js
+delets = document.getElementsByClassName("delete");
+Array.from(delets).forEach((element) => {
+  element.addEventListener("click", (e) => {
+    console.log("edit");
+    tr = e.target.parentNode.parentNode;
+    if(confirm("Press a Button")){
+      window.location = "/crud/index.php?delete=sno";
+  }else
+  {
+      console.log("no");
+  }
+  });
+});
 
 
