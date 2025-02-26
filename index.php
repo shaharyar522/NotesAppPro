@@ -11,12 +11,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'sub') {
         $insert = true;
     }
 }
-
-
 //update code 
 require_once("./incs/update_code.php");
 
-//dele
+//delete code
+require_once("./incs/delete_code.php");
 
 
 
@@ -38,9 +37,7 @@ require_once("./incs/update_code.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-   
 </head>
-
 <body>
     <!-- Start modal for when click the edit button then open  -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -156,7 +153,8 @@ require_once("./incs/update_code.php");
                          <th>" . $sno . "</th>
                           <td>" . $row['title'] . "</td>
                           <td>" . $row['description'] . "</td>
-                          <td> <button class='edit btn btn-sm btn-primary' id=" . $row['sno'] . ">Edit</button> <button class='delete btn btn-sm btn-primary' id=td" . $row['sno'] . ">Delete</button></td>
+                          <td> <button class='edit btn btn-sm btn-primary' id=" . $row['sno'] . ">Edit</button> 
+                          <button class='delete btn btn-sm btn-primary' id=d".$row['sno'].">Deletes</button></td>
                          </tr>";
                 }
                 ?>
