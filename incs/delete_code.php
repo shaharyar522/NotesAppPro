@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <?php include("connection.php");
+    <?php
+    include("connection.php");
     if (isset($_GET['delete'])) {
         $sno = $_GET['delete'];
         $delete_query = "DELETE FROM notes where sno = $sno";
@@ -18,7 +19,7 @@
                     Swal.fire({
                         icon: 'success',
                         title: 'Success!',
-                        text: 'Your Row has been Deleted  successfully!',
+                        text: 'Your data has been Deleted Successfully !',
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     });

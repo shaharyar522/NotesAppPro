@@ -6,8 +6,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-
-
 <?php 
 include("connection.php");
 ///agar mara recorc update ungay to thek waran insert karo ga
@@ -19,6 +17,7 @@ if (isset($_POST['snoEdit'])) {
     $Update_query = "UPDATE `notes` SET `title` = '$update_title', `description` = '$update_description' WHERE `sno` = $sno_id";
 
     $result = mysqli_query($conn, $Update_query);
+
     if ($result) {
         echo "<script>
                 Swal.fire({
@@ -29,7 +28,7 @@ if (isset($_POST['snoEdit'])) {
                     confirmButtonText: 'OK'
                 });
               </script>";
-    } else {
+      } else {
         echo "<script>
                 Swal.fire({
                     icon: 'error',
@@ -40,7 +39,7 @@ if (isset($_POST['snoEdit'])) {
                 });
               </script>";
     }
-} 
+ } 
 ?>
 
 
