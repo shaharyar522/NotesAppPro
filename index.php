@@ -17,14 +17,6 @@ require_once("./incs/update_code.php");
 //Delete code
 require_once("./incs/delete_code.php");
 
-
-
-
-
-
-
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,143 +30,146 @@ require_once("./incs/delete_code.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- this is check editor js -->
-    <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
-     <style>
-  /* General Styles */
-body {
+     <!-- Summernote CSS - CDN Link -->
+     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <!-- //Summernote CSS - CDN Link -->
+   
+ 
+
+ <style>
+      /* General Styles */
+  body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: #fff;
     min-height: 100vh;
-}
-
+ }
 /* Navbar */
-.navbar {
+ .navbar {
     background: rgba(0, 0, 0, 0.6) !important;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     padding: 15px 20px;
-}
+ }
 
-.navbar-brand {
+ .navbar-brand {
     font-size: 2rem;
     font-weight: bold;
     color: #f8f9fa !important;
     transition: 0.3s;
-}
+ }
 
-.navbar-brand:hover {
+ .navbar-brand:hover {
     color: #4ca1af !important;
-}
+ }
 
-.navbar-nav .nav-link {
+ .navbar-nav .nav-link {
     color: #f8f9fa !important;
     font-size: 1.2rem;
     padding: 10px;
     transition: 0.3s;
-}
+ }
 
-.navbar-nav .nav-link:hover {
+  .navbar-nav .nav-link:hover {
     color: #4ca1af !important;
     transform: scale(1.1);
-}
+ }
 
 /* Container */
-.container {
+  .container {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     margin-top: 30px;
-}
+  }
 
-h1 {
+  h1 {
     text-align: center;
     color: #f8f9fa;
-}
+ }
 
 /* Forms */
-.form-control {
+  .form-control {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: #fff;
-}
+ }
 
-.form-control:focus {
+ .form-control:focus {
     background: rgba(255, 255, 255, 0.3);
     color: #fff;
     box-shadow: none;
     border-left: 3px solid #4ca1af;
-}
+ }
 
-textarea.form-control {
+  textarea.form-control {
     resize: none;
-}
+  }
 
-/* Buttons */
-.btn-primary {
+  /* Buttons */
+  .btn-primary {
     background: #4ca1af;
     border: none;
     transition: all 0.3s;
-}
+ }
 
-.btn-primary:hover {
+  .btn-primary:hover {
     background: #1e3c72;
-}
+ }
 
-.btn-secondary {
+ .btn-secondary {
     background: rgba(0, 0, 0, 0.5);
     border: none;
-}
+ }
 
-/* Table */
-.table {
+  /* Table */
+  .table {
     color: #fff;
     text-align: center;
-}
+  }
 
-.table thead {
+  .table thead {
     background: #4ca1af;
-}
+  }
 
-.table tbody tr:nth-child(even) {
+ .table tbody tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.1);
-}
+ }
 
-/* Modal */
-.modal-content {
+ /* Modal */
+ .modal-content {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     border: none;
     backdrop-filter: blur(15px);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
-}
+ }
 
-.modal-header, .modal-footer {
+ .modal-header, .modal-footer {
     border: none;
-}
+ }
 
-.btn-close {
+ .btn-close {
     background: none;
     filter: invert(1);
-}
+ }
 
-/* Alert */
-.alert {
+ /* Alert */
+ .alert {
     border-radius: 10px;
     text-align: center;
-}
+ }
 
-/* Responsive */
-@media (max-width: 768px) {
+ /* Responsive */
+  @media (max-width: 768px) {
     .container {
         padding: 15px;
     }
-}
-
-     </style>
+ }
+ </style>
 </head>
 <body>
     <!-- Start modal for when click the edit button then open  -->
@@ -261,7 +256,7 @@ textarea.form-control {
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea name="description" placeholder="Enter Your Description" id="description" class="form-control" rows="3"></textarea>
+                <textarea name="description" placeholder="Enter Your Description" id="description" class="form-control  your_summernote" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" name="submit" value="sub">Submit</button>
         </form>
@@ -328,14 +323,16 @@ textarea.form-control {
     <!-- Delete js -->
     <script src="js/delete.js"></script>
 
-    <!-- uay hamray pass cehck editor hian -->
+    <!-- Summernote JS - CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
-    // Initialize CKEditor for the textarea
-    CKEDITOR.replace('checkedi');
-</script>
-  
+        $(document).ready(function() {
+            $(".your_summernote").summernote();
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+    <!-- //Summernote JS - CDN Link -->
 
- 
+
 </body>
-
 </html>
