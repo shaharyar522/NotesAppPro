@@ -22,7 +22,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'sub') {
         header("Location: index.php");
         exit();
     }
-
 }
 
 
@@ -47,14 +46,89 @@ require_once("./incs/delete_code.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Summernote CSS -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-
     <!-- Summernote JS -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
     <style>
         <?php include("css/main.css") ?>
     </style>
+    <style>
+        .navbar {
+            background: linear-gradient(45deg, #28a745, #218838);
+        }
 
+        .navbar-brand,
+        .nav-link {
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ffd700 !important;
+        }
+
+        .translate {
+            margin-right: 15px;
+        }
+
+        .btn-outline-success {
+            border-color: white;
+            color: white;
+        }
+
+        .btn-outline-success:hover {
+            background-color: white;
+            color: #28a745;
+        }
+
+        /* Google Translate Dropdown Styling */
+        /* Google Translate Styling */
+        #google_translate_element {
+            background-color: white;
+            text-align: center;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: fit-content;
+            display: inline-block;
+        }
+
+        /* Styling the select dropdown */
+        .goog-te-combo {
+            font-size: 16px;
+            padding: 8px 12px;
+            border: 2px solid white;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .goog-te-combo:hover {
+            background:#2a5298;
+            color: #222;
+            border-color: #fff;
+            color: white;
+        }
+
+        /* Remove Google branding */
+        .goog-logo-link,
+        .goog-te-gadget span,
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        /* Hide frame */
+        .goog-te-gadget {
+            font-size: 0 !important;
+        }
+
+        /* Add hover effect */
+        #google_translate_element:hover {
+            transform: translateY(-3px);
+            transition: 0.3s ease-in-out;
+        }
+    </style>
 </head>
 
 <body>
@@ -100,25 +174,26 @@ require_once("./incs/delete_code.php");
 
 
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg bg-success navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Notes_app</a>
+            <a class="navbar-brand" href="#">Notes App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">About</a>
+                        <a class="nav-link active" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                        <a class="nav-link active" href="#">Contact</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
+                <div class="translate" id="google_translate_element"></div>
+                <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
@@ -126,6 +201,17 @@ require_once("./incs/delete_code.php");
         </div>
     </nav>
     <!-- navbar End -->
+
+    <!-- starting js google translating code -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Ending js google translating code  -->
 
 
 
@@ -199,7 +285,7 @@ require_once("./incs/delete_code.php");
 
                     echo "<td> 
                       <button class='edit btn btn-sm btn-primary' id=" . $row['sno'] . ">Edit</button> 
-                      <button class='delete btn btn-sm btn-primary' id=d" . $row['sno'] . ">Delete</button>
+                      <button class='delete btn btn-sm btn-danger' id=d" . $row['sno'] . ">Delete</button>
                   </td>
                  </tr>";
                 }
@@ -231,6 +317,8 @@ require_once("./incs/delete_code.php");
             $('#summernote').summernote();
         });
     </script>
+
+
 
 
 
