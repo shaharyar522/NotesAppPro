@@ -27,14 +27,12 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'sub') {
 
 //update code 
 require_once("./incs/update_code.php");
-
 //Delete code
 require_once("./incs/delete_code.php");
-
 ?>
+<!-- workin  -->
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
