@@ -25,7 +25,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'sub') {
 }
 
 
-//update code 
+//update code     
 require_once("./incs/update_code.php");
 //Delete code
 require_once("./incs/delete_code.php");
